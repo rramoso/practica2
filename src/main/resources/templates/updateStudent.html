@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar</title>
+</head>
+<body>
+<h1>Editar a ${student.matricula}</h1>
+
+<form action="/procesarFormulario/" method="post">
+    <input name="edit" type="hidden" value="1"/>
+    <input name="matricula" type="hidden" value="${student.matricula}"/><br/>
+    Nombre: <input name="nombre" type="text" value="${student.nombre}"/><br/>
+    Apellido: <input name="apellido" type="text" value="${student.apellido}"/><br/>
+    Telefono: <input name="telefono" type="text" value="${student.telefono}"/><br/>
+    <button name="Enviar" type="submit">Enviar</button>
+</form>
+<p><a href="/"> Volver a inicio</a> </p>
+</body>
+</html>
