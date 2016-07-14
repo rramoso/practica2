@@ -1,9 +1,17 @@
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
-
+apply plugin: 'application'
 sourceCompatibility = 1.8
+archivesBaseName = "app"
+mainClassName = 'Main'
+applicationName = 'app'
 
+defaultTasks = ['stage']
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.6'
+}
 repositories {
     mavenCentral()
 }
@@ -14,4 +22,7 @@ dependencies {
     compile "org.slf4j:slf4j-simple:1.7.21"
     compile group: 'com.h2database', name: 'h2', version: '1.3.176'
     compile group: 'com.sparkjava', name: 'spark-template-freemarker', version: '2.0.0'
+}
+task stage {
+    dependsOn installDist
 }
