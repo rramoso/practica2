@@ -18,7 +18,7 @@ import java.lang.Integer;
 public class main {
 
     public static void main(String[] arg) throws Exception{
-        
+        System.out.println("Hello Heroku");
         ProcessBuilder process = new ProcessBuilder();
         Integer port;
         if (process.environment().get("PORT") != null) {
