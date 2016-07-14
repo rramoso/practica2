@@ -43,8 +43,8 @@ public class main {
         Configuration configuration=new Configuration();
         
         statement.execute("CREATE TABLE ESTUDIANTE(MATRICULA INT PRIMARY KEY, NOMBRE VARCHAR(255),APELLIDO VARCHAR(255),TELEFONO VARCHAR(10))");
-        String query = String.format("INSERT INTO ESTUDIANTE VALUES(%s,'%s','%s','%s')","20120576","nombre","apellido","telefono");
-        statement.execute(query);
+        // String query = String.format("INSERT INTO ESTUDIANTE VALUES(%s,'%s','%s','%s')","20120576","nombre","apellido","telefono");
+        // statement.execute(query);
         
         configuration.setClassForTemplateLoading(main.class, "/templates");
         FreeMarkerEngine freeMarkerEngine = new FreeMarkerEngine(configuration);
