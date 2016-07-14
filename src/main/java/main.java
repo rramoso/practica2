@@ -41,7 +41,9 @@ public class main {
         Connection connection =  DriverManager.getConnection("jdbc:h2:~/test","sa","");
         Statement statement = connection.createStatement();
         Configuration configuration=new Configuration();
-
+        
+        statement.execute("CREATE TABLE ESTUDIANTE(MATRICULA INT PRIMARY KEY, NOMBRE VARCHAR(255),APELLIDO VARCHAR(255),TELEFONO VARCHAR(10))");
+        
         configuration.setClassForTemplateLoading(main.class, "/templates");
         FreeMarkerEngine freeMarkerEngine = new FreeMarkerEngine(configuration);
 
