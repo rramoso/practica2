@@ -13,11 +13,30 @@ import freemarker.template.Configuration;
 import spark.ModelAndView;
 import spark.template.freemarker.FreeMarkerEngine;
 import org.h2.tools.Server;
+import java.lang.Integer;
 
 public class main {
 
     public static void main(String[] arg) throws Exception{
+        
+        ProcessBuilder process = new ProcessBuilder();
+        Integer port;
+        if (process.environment().get("PORT") != null) {
+            port = Integer.parseInt(process.environment().get("PORT"));
+        } else {
+            port = 4567;
+        }
 
+        setPort(port);
+
+        Server server = null;
+        try {
+            server = Server.createTcpServer("-tcpAllowOthers").start();
+        } catch (SQLException e) {
+            System.out.println("FAILED TO START SERVER, CLOSE H2 IF YOU HAVE IT OPENED");
+            e.printStackTrace();
+        }
+        
         Class.forName("org.h2.Driver");
         Connection connection =  DriverManager.getConnection("jdbc:h2:~/test","sa","");
         Statement statement = connection.createStatement();
