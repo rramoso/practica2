@@ -36,16 +36,14 @@ public class main {
             System.out.println("FAILED TO START SERVER, CLOSE H2 IF YOU HAVE IT OPENED");
             e.printStackTrace();
         }
-        System.out.println("fuck everything");
+        
         Class.forName("org.h2.Driver");
         Connection connection =  DriverManager.getConnection("jdbc:h2:~/test","sa","");
         Statement statement = connection.createStatement();
         Configuration configuration=new Configuration();
         
-        System.out.println("fuck everything2");
         statement.execute("CREATE TABLE ESTUDIANTE(MATRICULA INT PRIMARY KEY, NOMBRE VARCHAR(255),APELLIDO VARCHAR(255),TELEFONO VARCHAR(10))");
         
-        System.out.println("fuck everything3");
         // String query = String.format("INSERT INTO ESTUDIANTE VALUES(%s,'%s','%s','%s')","20120576","nombre","apellido","telefono");
         // statement.execute(query);
         
